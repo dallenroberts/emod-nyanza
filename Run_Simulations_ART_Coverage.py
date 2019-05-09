@@ -155,6 +155,9 @@ def header_table_to_dict(points_df, index_name=None):
        # if 'Initial_Distribution__KP_no_circumcision' in param:
            # new_values = pandas.Series(list( zip(df[param], 1 - df[param])) )
            # df.loc[:, param] = new_values
+        if 'Male_To_Female_Relative_Infectivity_Multipliers' in param:
+            new_values = pandas.Series(list( zip(df[param], df[param], df[param]) ))
+            df.loc[:, param] = new_values
 
     # Drop unused columns
     for unused in unused_params:
